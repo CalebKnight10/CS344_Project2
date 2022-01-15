@@ -10,7 +10,8 @@ int main()
 	printf("x is %d, y is %f\n", x, y);
 	printf("%s\n", s);
 
-	for(int i = 0; i < 5; i++) {
+	for(int i = 0; i < 5; i++) 
+	{
 		printf("%d x %d = %d\n", i, 5, i*5);
 	}
 }
