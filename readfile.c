@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
 	char *file = argv[1];
 	char buf[2048];
 
-	int fileDescriptor = open(file, O_RDONLY);
-	size_t ct = read(fileDescriptor, buf, 2048);
+	int file_descriptor = open(file, O_RDONLY);
+	size_t ct = read(file_descriptor, buf, 2048);
 	write(1, buf, ct);
-	close(fileDescriptor);
+	close(file_descriptor);
 }
