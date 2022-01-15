@@ -1,7 +1,9 @@
 #include <stdio.h> //basic library
 #include <unistd.h> //size_t
 #include <fcntl.h> //O_RDONLY
+#include <ctype.h> //touppper
 
+#include <stdlib.h>
 
 void use_command_line();
 void use_files(int num_of_files, char *argv[]);
@@ -22,6 +24,10 @@ void use_command_line()
 {
 	char buf[2048];
 	size_t ct = read(0, buf, 2048);
+	for(int i = 0; i < (int) sizeof(buf); i++)
+	{
+		buf[i] = toupper(buf[i]);
+	}
 	write(1, buf, ct);
 }
 
@@ -41,6 +47,11 @@ void use_files(int num_of_files, char *argv[])
 			perror("Error: ");
 		}
 		ct = read(file_descriptor, buf, 2048);
+		for(int i = 0; i < (int) sizeof(buf); i++)
+		{
+			buf[i] = toupper(buf[i]);
+
+		}
 		write(1, buf, ct);
 		close(file_descriptor);
 	}
